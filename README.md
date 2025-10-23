@@ -8,6 +8,8 @@ This code has been developed during my PhD thesis and has been used to evaluate 
 - (not necessary) my messy library of python tools: [phd_lib](https://github.com/marecmat/phd_lib)
 
 ## Use the code 
+The code has been originally designed to interface the 'DispersionPwProblem' from [pyPLANES](https://github.com/OlivierDAZEL/pyPLANES/tree/eTMM), but it can be used if the problem is declared using a similar layout. 
+
 ### Formatting of your problem
 The code interfaces a class that should describe the problem for which you want to solve dispersion relation. Snippet for the code structure should be as,
 
