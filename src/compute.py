@@ -2,8 +2,9 @@ import os
 import sys
 import numpy as np
 import warnings
-from muller import muller 
 from traceback import format_exc
+
+from muller import muller 
 from utils import list_of_lists_to_array
 
 if os.uname()[1] == 'helmholtz':
