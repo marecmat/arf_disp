@@ -1,3 +1,5 @@
+[![DOI](https://zenodo.org/badge/1081885293.svg)](https://doi.org/10.5281/zenodo.17425638)
+
 # a root-finding method for wave dispersion problems
 
 This code has been developed during my PhD thesis and has been used to evaluate full dispersion relations of waves in various configurations. 
@@ -53,5 +55,8 @@ if __name__ == '__main__':
 ``` 
 
 ## References
+This code has been used in the following papers: 
 
-TODO
+<!-- - M. Maréchal, O.Dazel,  V. Romero-García and J.-P. Groby, "Dispersion relations of leaky guided waves in metaporous layers", *in preparation for Phys. Rev. B* (2025) -->
+
+- M. Maréchal, A. Geslain, J.-P. Groby, V. Romero-García, O. Dazel, A general spectral collocation method for computing the dispersion relations of guided acoustic waves in multilayer dissipative structures. [**J. Appl. Phys.**](https://doi.org/10.1063/5.0242405) 137 (10) 104902. 2025

@@ -3,7 +3,7 @@ import sys
 import numpy as np
 import warnings
 from traceback import format_exc
-
+import matplotlib.pyplot as plt
 from muller import muller 
 from utils import list_of_lists_to_array
 
@@ -24,9 +24,9 @@ except ModuleNotFoundError:
 class compute_dispersion:
 
     def __init__(self, method, muller_params, args={}, directory='',
-            det_type='det', nb_sol=0, max_recompute=3, map_size=(20, 20), 
-            grid_interval=((-100, 100), (-100, 100)), URL='',
-            mode_shapes=False, verbose=2):
+    det_type='det', nb_sol=0, max_recompute=3, map_size=(20, 20), 
+    grid_interval=((-100, 100), (-100, 100)), URL='',
+    mode_shapes=False, verbose=2):
         
         self.method = method
         self.method_name = str(method)[1:].split(' ')[0].split('.')[-1]
@@ -43,9 +43,19 @@ class compute_dispersion:
         self.directory = directory
         self.verbose = verbose
         self.URL = URL
-        if verbose >= 1 and type(tqdm) is type(os): 
+
+        try:
+            self.muller_params['guesses'].append([])
+        except KeyError:
+            self.muller_params['guesses'] = []
+
+        if not os.path.exists('./out/') and verbose >= 3: os.makedirs('./out/')
+
+
+        if verbose >= 1 and type(tqdm) is type: 
             self.indic = tqdm
-        else: np.real
+        else: 
+            self.indic = np.real
         
         if verbose < 2: 
             warnings.filterwarnings(action='ignore', category=RuntimeWarning)
@@ -119,6 +129,15 @@ class compute_dispersion:
         self.kr = kr
         self.kr = ki
         self.map = carte 
+        if self.verbose >= 3: 
+            map_format = dict(cmap='plasma_r', rasterized=True)
+            fig, ax = plt.subplots(figsize=(4, 3), layout='constrained')
+            pcol = ax.pcolormesh(kr, ki, np.log10(np.abs(carte)), **map_format)
+            fig.colorbar(pcol, ax=ax)
+            ax.scatter(np.real(grid[mapmin]), np.imag(grid[mapmin]), c='r', s=5)
+            plt.savefig(f'./out/test_map_{self.method_name}_{self.freq:.2f}.pdf')
+            plt.close(fig=fig)
+
         return grid[mapmin]
     
 
