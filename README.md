@@ -1,4 +1,4 @@
-[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.17425638.svg)](https://doi.org/10.5281/zenodo.17425638)
+[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.17425639.svg)](https://doi.org/10.5281/zenodo.17425638)
 
 # a root-finding method for wave dispersion problems
 
