@@ -51,8 +51,8 @@ if __name__ == '__main__':
     compute_dispersion(method, muller_params, directory='/your/path/here', 
             nb_sol=3, map_size=(20, 20), grid_interval=muller_params['interval'], verbose=2)
 
-
 ``` 
+
 
 ## References
 This code has been used in the following papers: 
